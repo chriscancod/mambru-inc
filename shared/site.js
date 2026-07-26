@@ -111,3 +111,104 @@ document.addEventListener('DOMContentLoaded',()=>{
   const yearEl=document.getElementById('fyear');
   if(yearEl) yearEl.textContent=new Date().getFullYear();
 });
+
+// ── HERO PARTICLES ───────────────────────────────────────────────────────
+// Lightweight drifting embers behind the hero — CSS-driven, no canvas.
+(function(){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.querySelectorAll('.hero-particles').forEach(container=>{
+    const COLORS=['#e2263a','#e0b34a'];
+    const COUNT=22;
+    for(let i=0;i<COUNT;i++){
+      const p=document.createElement('div');
+      p.className='hp';
+      const size=1.5+Math.random()*2.5;
+      p.style.width=size+'px';
+      p.style.height=size+'px';
+      p.style.left=Math.random()*100+'%';
+      p.style.top=40+Math.random()*55+'%';
+      p.style.background=COLORS[i%2];
+      p.style.animationDuration=(6+Math.random()*8)+'s';
+      p.style.animationDelay=(Math.random()*8)+'s';
+      container.appendChild(p);
+    }
+  });
+})();
+
+// ── FAQ ACCORDION ─────────────────────────────────────────────────────────
+document.addEventListener('click',(e)=>{
+  const q=e.target.closest('.faq-q');
+  if(!q) return;
+  const item=q.closest('.faq-item');
+  const wasOpen=item.classList.contains('open');
+  item.parentElement.querySelectorAll('.faq-item.open').forEach(i=>{ if(i!==item) i.classList.remove('open'); });
+  item.classList.toggle('open',!wasOpen);
+});
+
+// ── LIVE BATTERY / TEG WIDGET ─────────────────────────────────────────────
+// Ties the marketing page to the real Thermal screen in the launcher: reads
+// the visitor's own device battery where the Battery Status API is
+// available, and derives a simulated "TEG trickle" number from it. Falls
+// back to a clearly-labeled demo state where the API doesn't exist (most
+// desktop/iOS browsers dropped it for fingerprinting reasons).
+(function(){
+  const widget=document.querySelector('[data-battery-widget]');
+  if(!widget) return;
+  const levelEl=widget.querySelector('[data-bw-level]');
+  const stateEl=widget.querySelector('[data-bw-state]');
+  const trickleEl=widget.querySelector('[data-bw-trickle]');
+  const barEl=widget.querySelector('[data-bw-bar]');
+  const noteEl=widget.querySelector('[data-bw-note]');
+  const liveEl=widget.querySelector('[data-bw-live]');
+
+  function render(level,charging,isLive){
+    const pct=Math.round(level*100);
+    if(levelEl) levelEl.textContent=pct+'%';
+    if(stateEl) stateEl.textContent=charging?'Charging':'On battery';
+    if(barEl) barEl.style.width=pct+'%';
+    const trickle=(charging?2.4:0.3)+(Math.sin(Date.now()/4000)*0.3);
+    if(trickleEl) trickleEl.textContent=(trickle>=0?'+':'')+trickle.toFixed(1)+'%/hr';
+    if(liveEl) liveEl.style.display=isLive?'flex':'none';
+    if(noteEl) noteEl.textContent=isLive
+      ? "That's your actual device battery, read live — the same reading Veynor Solis's Thermal screen shows, next to a simulated solar/TEG trickle number."
+      : 'Your browser doesn’t expose live battery data (most desktop and iOS browsers dropped that API) — this is a demo of what the Thermal screen looks like on Veynor Solis itself.';
+  }
+
+  if('getBattery' in navigator){
+    navigator.getBattery().then(battery=>{
+      render(battery.level,battery.charging,true);
+      battery.addEventListener('levelchange',()=>render(battery.level,battery.charging,true));
+      battery.addEventListener('chargingchange',()=>render(battery.level,battery.charging,true));
+    }).catch(()=>render(0.87,false,false));
+  }else{
+    render(0.87,false,false);
+  }
+})();
+
+// ── EASTER EGG ────────────────────────────────────────────────────────────
+// Click the nav logo 5 times to trigger a brief "energy surge" flash —
+// a small reward for people who poke around.
+(function(){
+  const logo=document.querySelector('.nav-logo');
+  if(!logo) return;
+  let clicks=0, timer=null;
+  logo.addEventListener('click',(e)=>{
+    clicks++;
+    clearTimeout(timer);
+    timer=setTimeout(()=>{clicks=0;},1200);
+    if(clicks>=5){
+      e.preventDefault();
+      clicks=0;
+      const surge=document.createElement('div');
+      surge.className='energy-surge fire';
+      document.body.appendChild(surge);
+      surge.addEventListener('animationend',()=>surge.remove());
+      const toast=document.createElement('div');
+      toast.className='energy-toast';
+      toast.textContent='⚡ TEG overload — thermal reclaim maxed';
+      document.body.appendChild(toast);
+      requestAnimationFrame(()=>toast.classList.add('show'));
+      setTimeout(()=>{toast.classList.remove('show');setTimeout(()=>toast.remove(),400);},2200);
+    }
+  });
+})();
