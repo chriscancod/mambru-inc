@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mambru Inc — Hardware, built from a blank sheet</title>
+<meta name="description" content="Mambru Inc designs and builds its own hardware from the schematic up — starting with Veynor Solis, a solar/thermal-hybrid Android handset.">
+<meta name="theme-color" content="#050506">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%27 height=%27100%27 rx=%2722%27 fill=%27%23050506%27/%3E%3Cdefs%3E%3ClinearGradient id=%27g%27 x1=%270%27 y1=%270%27 x2=%271%27 y2=%271%27%3E%3Cstop offset=%270%25%27 stop-color=%27%23e2263a%27/%3E%3Cstop offset=%27100%25%27 stop-color=%27%23e0b34a%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d=%27M22 78 L22 22 L38 22 L50 52 L62 22 L78 22 L78 78 L64 78 L64 42 L54 78 L46 78 L36 42 L36 78 Z%27 fill=%27url(%23g)%27/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared/base.css">
+<style>
+.home-hero{position:relative;padding:200px 0 140px;overflow:hidden;text-align:center}
+.home-hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse 65% 55% at 50% 10%,var(--red-glow),transparent 65%),radial-gradient(ellipse 50% 40% at 80% 60%,var(--gold-dim),transparent 70%);pointer-events:none}
+.home-hero-inner{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:0 24px}
+.home-eye{font-family:var(--m);font-size:11px;letter-spacing:.35em;text-transform:uppercase;color:var(--red);margin-bottom:22px;opacity:0;animation:fu .8s .05s forwards}
+.home-title{font-family:var(--d);font-weight:900;letter-spacing:-.035em;font-size:clamp(46px,8vw,96px);line-height:.98;margin-bottom:24px;opacity:0;animation:fu 1s .12s cubic-bezier(.16,1,.3,1) forwards}
+.home-title em{font-style:normal;background:linear-gradient(100deg,var(--red),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.home-sub{font-size:clamp(17px,2vw,21px);line-height:1.55;color:var(--muted);max-width:600px;margin:0 auto 40px;opacity:0;animation:fu 1s .24s cubic-bezier(.16,1,.3,1) forwards}
+.home-cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;opacity:0;animation:fu 1s .36s cubic-bezier(.16,1,.3,1) forwards}
+
+.products-section{border-top:1px solid var(--border);padding:100px 0}
+.products-head{max-width:640px;margin:0 auto 48px;text-align:center;padding:0 24px}
+.products-head .mh-eye{justify-content:center;display:flex}
+.products-head h2{font-family:var(--d);font-weight:800;letter-spacing:-.02em;font-size:clamp(30px,4vw,44px);line-height:1.05}
+
+.manifesto{border-top:1px solid var(--border);padding:120px 0;text-align:center}
+.manifesto-inner{max-width:720px;margin:0 auto;padding:0 24px}
+.manifesto p{font-family:var(--d);font-weight:500;font-size:clamp(22px,3vw,32px);line-height:1.45;letter-spacing:-.01em;color:var(--white)}
+.manifesto p strong{color:var(--red);font-weight:700}
+</style>
+</head>
+<body>
+<div class="cur" id="cur"></div>
+<div class="cur-ring" id="curRing"></div>
+
+<nav id="nav">
+  <a href="index.html" class="nav-logo"><svg class="brand-mark" viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="22" fill="#050506"/><defs><linearGradient id="navg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#e2263a"/><stop offset="100%" stop-color="#e0b34a"/></linearGradient></defs><path d="M22 78 L22 22 L38 22 L50 52 L62 22 L78 22 L78 78 L64 78 L64 42 L54 78 L46 78 L36 42 L36 78 Z" fill="url(#navg)"/></svg>Mambru Inc</a>
+  <div class="nav-center">
+    <a href="index.html" class="active">Home</a>
+    <a href="veynor-solis.html">Veynor Solis</a>
+    <a href="#waitlist">Waitlist</a>
+  </div>
+  <div class="nav-right">
+    <a href="mailto:chrisclm713@gmail.com" class="btn-line sm">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="home-hero">
+  <div class="home-hero-glow"></div>
+  <div class="home-hero-inner">
+    <p class="home-eye">— Mambru Inc</p>
+    <h1 class="home-title">Hardware, built<br>from a <em>blank sheet</em>.</h1>
+    <p class="home-sub">We don't license reference designs and skin them. We draw our own schematics, lay out our own boards, and ship the results in the open — starting with a phone.</p>
+    <div class="home-cta-row">
+      <span class="magnetic" data-magnetic><a href="veynor-solis.html" class="btn-fill">See Veynor Solis →</a></span>
+      <span class="magnetic" data-magnetic><a href="#waitlist" class="btn-line">Join the Waitlist</a></span>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products-section">
+  <div class="wrap products-head">
+    <p class="mh-eye">— Products</p>
+    <h2>One shipped. More on the bench.</h2>
+  </div>
+  <div class="wrap">
+    <div class="prod-grid">
+      <a href="veynor-solis.html" class="pc">
+        <div class="pc-art">
+          <svg viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <defs><radialGradient id="pg1" cx="35%" cy="25%" r="85%"><stop offset="0%" stop-color="#1a0d10"/><stop offset="55%" stop-color="#08080b"/><stop offset="100%" stop-color="#050506"/></radialGradient></defs>
+            <rect width="800" height="1000" fill="url(#pg1)"/>
+            <g stroke="#e2263a" stroke-width="1.4" fill="none" opacity=".5">
+              <path d="M80 700 h140 v-140 h120 v-200 h180"/>
+              <path d="M140 850 h100 v-90 h160 v-160 h140"/>
+            </g>
+            <circle cx="220" cy="700" r="5" fill="#e0b34a" opacity=".8"/>
+            <circle cx="460" cy="360" r="4" fill="#e0b34a" opacity=".7"/>
+          </svg>
+        </div>
+        <div class="pc-scrim"></div>
+        <div class="pc-body">
+          <p class="pc-tag">Handset · Preorder waitlist</p>
+          <h3 class="pc-name">Veynor Solis</h3>
+          <p class="pc-desc">RK3588 custom board, solar + thermal-hybrid power, a launcher built from scratch on Android.</p>
+          <span class="pc-cta">Explore the build →</span>
+        </div>
+      </a>
+      <div class="pc soon">
+        <div class="pc-art">
+          <svg viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <defs><radialGradient id="pg2" cx="65%" cy="70%" r="85%"><stop offset="0%" stop-color="#141018"/><stop offset="55%" stop-color="#08080b"/><stop offset="100%" stop-color="#050506"/></radialGradient></defs>
+            <rect width="800" height="1000" fill="url(#pg2)"/>
+            <g stroke="#3a3a42" stroke-width="1.2" fill="none" opacity=".6">
+              <rect x="260" y="360" width="280" height="280" rx="14"/>
+              <path d="M400 360 v280 M260 500 h280" stroke-dasharray="4 8"/>
+            </g>
+          </svg>
+        </div>
+        <div class="pc-scrim"></div>
+        <div class="pc-body">
+          <p class="pc-tag">Next on the bench</p>
+          <h3 class="pc-name">Unannounced</h3>
+          <p class="pc-desc">Something else is on the schematic sheet. Join the waitlist and we'll tell you first.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="manifesto">
+  <div class="manifesto-inner">
+    <p>We think a phone should be <strong>repairable</strong>, a battery should be <strong>swappable</strong>, and waste heat shouldn't just disappear. So we're building the hardware that agrees with us — one board at a time, in the open.</p>
+  </div>
+</section>
+
+<!-- WAITLIST -->
+<section class="manifesto" id="waitlist" style="padding-top:0">
+  <div class="manifesto-inner">
+    <p class="mh-eye" style="justify-content:center;display:flex;margin-bottom:20px">— Stay Ahead of the Build</p>
+    <form class="waitlist" data-waitlist>
+      <input class="waitlist-input" type="email" placeholder="you@email.com" required>
+      <button class="btn-fill" type="submit">Join Waitlist</button>
+    </form>
+    <p class="waitlist-status"></p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo"><svg class="brand-mark" viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="22" fill="#050506"/><path d="M22 78 L22 22 L38 22 L50 52 L62 22 L78 22 L78 78 L64 78 L64 42 L54 78 L46 78 L36 42 L36 78 Z" fill="#3a3a42"/></svg>Mambru Inc</div>
+  <div class="footer-links">
+    <a href="veynor-solis.html">Veynor Solis</a>
+    <a href="mailto:chrisclm713@gmail.com">Contact</a>
+  </div>
+  <p class="footer-copy">© <span id="fyear"></span> Mambru Inc. All rights reserved.</p>
+</footer>
+
+<script src="shared/site.js"></script>
+</body>
+</html>

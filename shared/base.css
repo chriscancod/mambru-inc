@@ -1,0 +1,132 @@
+/* ============================================================
+   MAMBRU INC — shared design system.
+   Apple-grade structure/motion restraint, pushed with a bolder
+   hero-red + gold energy accent. Loaded by every page on the site.
+   ============================================================ */
+
+:root{
+  --black:#050506;
+  --deep:#08080b;
+  --card:#0d0d11;
+  --card2:#131317;
+  --border:rgba(255,255,255,0.07);
+  --border-hi:rgba(255,255,255,0.16);
+  --red:#e2263a;
+  --red-dim:rgba(226,38,58,0.22);
+  --red-glow:rgba(226,38,58,0.12);
+  --gold:#e0b34a;
+  --gold-dim:rgba(224,179,74,0.22);
+  --white:#f5f3f0;
+  --muted:rgba(245,243,240,0.4);
+  --green:#3ee8a0;
+  --d:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  --s:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  --m:'Space Mono',monospace;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:var(--d);overflow-x:hidden;cursor:none;-webkit-font-smoothing:antialiased}
+
+/* GRAIN */
+body::before{content:'';position:fixed;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:1}
+
+/* CURSOR */
+.cur{position:fixed;top:0;left:0;width:6px;height:6px;background:var(--white);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s,opacity .2s;mix-blend-mode:difference}
+.cur-ring{position:fixed;top:0;left:0;width:28px;height:28px;border:1px solid rgba(255,255,255,.2);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s,border-color .3s}
+body:hover .cur{opacity:1}
+
+/* NAV — glass, hides on scroll-down, reveals on scroll-up */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:0 52px;height:64px;transition:background .5s,border-color .5s,transform .5s cubic-bezier(.16,1,.3,1);border-bottom:1px solid transparent}
+nav.scrolled{background:rgba(5,5,6,.72);backdrop-filter:blur(20px) saturate(1.6);-webkit-backdrop-filter:blur(20px) saturate(1.6);border-color:var(--border)}
+nav.nav-hide{transform:translateY(-100%)}
+.nav-logo{font-family:var(--d);font-weight:800;letter-spacing:-.01em;font-size:18px;color:var(--white);text-decoration:none;display:flex;align-items:center;gap:10px}
+.brand-mark{width:26px;height:26px;flex-shrink:0}
+.footer-logo{display:flex;align-items:center;gap:8px}
+.footer-logo .brand-mark{width:18px;height:18px;opacity:.7}
+.nav-center{display:flex;gap:40px}
+.nav-center a{color:var(--muted);text-decoration:none;font-family:var(--d);font-weight:500;font-size:12px;letter-spacing:.01em;transition:color .2s;position:relative;padding-bottom:3px}
+.nav-center a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--red);transition:width .3s}
+.nav-center a:hover,.nav-center a.active{color:var(--white)}
+.nav-center a:hover::after,.nav-center a.active::after{width:100%}
+.nav-right{display:flex;align-items:center;gap:24px}
+
+/* ── ENTRANCE ANIMATION ── */
+@keyframes fu{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── MINI-HERO (secondary page headers) ── */
+.mini-hero{position:relative;padding:150px 48px 48px;border-bottom:1px solid var(--border);overflow:hidden}
+.mini-hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 0%,var(--red-glow),transparent 70%);pointer-events:none}
+.mh-eye{font-family:var(--m);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--red);margin-bottom:14px;display:flex;align-items:center;gap:12px;opacity:0;animation:fu .7s .05s forwards}
+.mh-eye::before{content:'';width:24px;height:1px;background:currentColor;opacity:.6}
+.mh-title{font-family:var(--d);font-weight:800;letter-spacing:-.03em;font-size:clamp(48px,8vw,88px);line-height:.94;opacity:0;animation:fu .9s .16s cubic-bezier(.16,1,.3,1) forwards}
+.mh-sub{font-size:17px;color:var(--muted);letter-spacing:0;margin-top:16px;max-width:560px;line-height:1.6;opacity:0;animation:fu .8s .3s forwards}
+
+/* ── BUTTONS ── */
+.btn-fill{background:var(--red);color:var(--white);border:none;padding:16px 34px;font-family:var(--d);font-weight:600;font-size:14px;letter-spacing:-.005em;cursor:pointer;border-radius:980px;transition:transform .35s cubic-bezier(.16,1,.3,1),background .25s;text-decoration:none;display:inline-flex;align-items:center;gap:10px;will-change:transform}
+.btn-fill:hover{background:#f13850}
+.btn-fill.gold{background:var(--gold);color:#1a1408}
+.btn-fill.gold:hover{background:#eec46a}
+.btn-line{background:transparent;color:var(--white);border:1px solid var(--border-hi);padding:16px 34px;font-family:var(--d);font-weight:600;font-size:14px;cursor:pointer;border-radius:980px;transition:all .25s;text-decoration:none;display:inline-flex;align-items:center;gap:10px}
+.btn-line:hover{border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.04)}
+.btn-fill.sm,.btn-line.sm{padding:9px 20px;font-size:12px}
+.magnetic{position:relative;display:inline-block}
+
+/* ── WAITLIST FORM ── */
+.waitlist{display:flex;gap:0;flex-wrap:wrap;justify-content:center;max-width:440px;margin:0 auto}
+.waitlist-input{flex:1;min-width:220px;background:rgba(255,255,255,.04);border:1px solid var(--border-hi);border-right:none;color:var(--white);padding:15px 18px;font-family:var(--d);font-size:14px;outline:none;border-radius:980px 0 0 980px}
+.waitlist-input:focus{border-color:rgba(255,255,255,.35)}
+.waitlist-input::placeholder{color:var(--muted)}
+.waitlist .btn-fill{border-radius:0 980px 980px 0;white-space:nowrap}
+.waitlist-status{font-family:var(--m);font-size:10px;letter-spacing:.08em;margin-top:14px;min-height:14px;color:var(--muted)}
+.waitlist-status.ok{color:var(--green)}
+.waitlist-status.err{color:var(--red)}
+@media(max-width:480px){
+  .waitlist{flex-direction:column}
+  .waitlist-input{border-right:1px solid var(--border-hi);border-radius:980px}
+  .waitlist .btn-fill{border-radius:980px}
+}
+
+/* ── PRODUCT GRID (index / future products) ── */
+.prod-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border)}
+@media(max-width:800px){.prod-grid{grid-template-columns:1fr}}
+.pc{position:relative;background:var(--black);overflow:hidden;aspect-ratio:4/5;display:flex;align-items:flex-end;padding:32px;text-decoration:none;color:var(--white)}
+.pc-art{position:absolute;inset:0;z-index:0}
+.pc-art svg{width:100%;height:100%;display:block}
+.pc-scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,transparent 30%,rgba(5,5,6,.9) 100%)}
+.pc-body{position:relative;z-index:2;width:100%}
+.pc-tag{font-family:var(--m);font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.pc-name{font-family:var(--d);font-weight:800;letter-spacing:-.02em;font-size:clamp(26px,3vw,34px);margin-bottom:8px}
+.pc-desc{font-size:14px;color:var(--muted);line-height:1.5;max-width:320px}
+.pc-cta{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-family:var(--d);font-weight:600;font-size:13px;color:var(--white)}
+.pc.soon{cursor:default}
+.pc.soon .pc-name{color:var(--muted)}
+.pc.soon .pc-tag{color:var(--muted)}
+
+/* ── FOOTER ── */
+footer{position:relative;z-index:2;border-top:1px solid var(--border);padding:32px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}
+.footer-logo{font-family:var(--d);font-weight:800;font-size:16px;letter-spacing:-.01em;color:rgba(245,243,240,.3)}
+.footer-links{display:flex;gap:28px}
+.footer-links a{font-size:11px;letter-spacing:.05em;color:rgba(245,243,240,.35);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--red)}
+.footer-copy{font-size:10px;color:rgba(245,243,240,.2);letter-spacing:.02em}
+
+/* ── RESPONSIVE / A11Y ── */
+@media(max-width:900px){
+  nav{padding:0 20px}
+  .nav-center{display:none}
+  footer{padding:24px 20px;flex-direction:column;align-items:flex-start}
+  .mini-hero{padding:120px 20px 32px}
+}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--border)}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+}
+:focus-visible{outline:1px solid var(--red);outline-offset:2px}
+@media(hover:none),(pointer:coarse){
+  body{cursor:auto}
+  .cur,.cur-ring{display:none}
+}
