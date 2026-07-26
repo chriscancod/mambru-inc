@@ -38,6 +38,11 @@
 .stl-status{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--m);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);pointer-events:none}
 .stl-hint{position:absolute;bottom:14px;left:0;right:0;text-align:center;font-family:var(--m);font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);pointer-events:none;opacity:.7}
 
+.jump-chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+.jump-chip{display:inline-flex;align-items:center;gap:7px;padding:8px 16px;background:rgba(255,255,255,.04);border:1px solid var(--border-hi);border-radius:980px;color:var(--muted);text-decoration:none;font-family:var(--m);font-size:10px;letter-spacing:.08em;text-transform:uppercase;transition:all .2s}
+.jump-chip:hover{color:var(--white);border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.08)}
+.jump-chip-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0}
+
 /* ── DETAIL STRIP — waitlist form ───────────────────────── */
 .detail-strip{border-top:1px solid var(--border);padding:64px 0;text-align:center}
 .phone-price-row{display:flex;align-items:baseline;gap:14px;justify-content:center;margin-bottom:14px}
@@ -136,10 +141,12 @@
       <div id="stl-viewer"></div>
       <div class="stl-status" id="stl-status">Loading 3D preview…</div>
       <div class="stl-hint">Drag to rotate · Scroll to zoom</div>
-      <a class="hotspot" href="#spec-camera" style="top:28%;left:38%"><span class="hotspot-dot"></span><span class="hotspot-label">Camera + gimbal</span></a>
-      <a class="hotspot" href="#spec-controls" style="top:45%;left:14%"><span class="hotspot-dot"></span><span class="hotspot-label">Digital dial</span></a>
-      <a class="hotspot" href="#spec-power" style="top:68%;left:62%"><span class="hotspot-dot"></span><span class="hotspot-label">Solar + TEG band</span></a>
-      <a class="hotspot" href="#spec-battery" style="top:86%;left:50%"><span class="hotspot-dot"></span><span class="hotspot-label">Charge port</span></a>
+    </div>
+    <div class="jump-chips">
+      <a class="jump-chip" href="#spec-camera"><span class="jump-chip-dot"></span>Camera + gimbal</a>
+      <a class="jump-chip" href="#spec-controls"><span class="jump-chip-dot"></span>Digital dial</a>
+      <a class="jump-chip" href="#spec-power"><span class="jump-chip-dot"></span>Solar + TEG band</a>
+      <a class="jump-chip" href="#spec-battery"><span class="jump-chip-dot"></span>Charge port</a>
     </div>
   </div>
 </section>
@@ -392,7 +399,7 @@
     <p class="mh-eye" style="font-family:var(--m)">— Questions</p>
     <h2>Before you join the list.</h2>
     <div class="faq-list">
-      <div class="faq-item">
+      <div class="faq-item open">
         <button class="faq-q">Is this a real charge today?<span class="chev">+</span></button>
         <div class="faq-a"><p>No. Joining the waitlist is just an email address — nothing is charged. When real preorders open, the list gets the first email, before anyone else.</p></div>
       </div>

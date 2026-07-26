@@ -157,7 +157,8 @@ footer{position:relative;z-index:2;border-top:1px solid var(--border);padding:32
 .milestone{flex:1;position:relative;padding-right:16px}
 .milestone-dot{width:15px;height:15px;border-radius:50%;background:var(--card2);border:2px solid var(--border-hi);position:relative;z-index:1;margin-bottom:18px}
 .milestone.done .milestone-dot{background:var(--gold);border-color:var(--gold)}
-.milestone.active .milestone-dot{background:var(--red);border-color:var(--red);box-shadow:0 0 0 4px var(--red-dim)}
+.milestone.active .milestone-dot{background:var(--red);border-color:var(--red);animation:milestonePulse 2s ease-out infinite}
+@keyframes milestonePulse{0%{box-shadow:0 0 0 0 var(--red-dim)}70%{box-shadow:0 0 0 8px rgba(226,38,58,0)}100%{box-shadow:0 0 0 0 rgba(226,38,58,0)}}
 .milestone-label{font-family:var(--m);font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
 .milestone.done .milestone-label{color:var(--gold)}
 .milestone.active .milestone-label{color:var(--red)}
@@ -181,7 +182,7 @@ footer{position:relative;z-index:2;border-top:1px solid var(--border);padding:32
 .compare-row:first-of-type{border-top:none}
 .compare-row .mark{flex-shrink:0;width:18px;text-align:center;font-family:var(--m);font-size:13px}
 .compare-col.us .compare-row .mark{color:var(--gold)}
-.compare-col:not(.us) .compare-row .mark{color:var(--muted)}
+.compare-col:not(.us) .compare-row .mark{color:rgba(226,38,58,.6)}
 
 /* ── FAQ ACCORDION ───────────────────────────────────────────────────── */
 .faq{padding:100px 0;border-top:1px solid var(--border)}
@@ -210,13 +211,6 @@ footer{position:relative;z-index:2;border-top:1px solid var(--border);padding:32
 .bw-bar-fill{height:100%;background:linear-gradient(90deg,var(--red),var(--gold));border-radius:4px;transition:width .6s ease}
 .bw-note{font-size:11px;color:var(--muted);line-height:1.6}
 
-/* ── 3D VIEWER HOTSPOTS ──────────────────────────────────────────────── */
-.hotspot{position:absolute;width:14px;height:14px;transform:translate(-50%,-50%);z-index:5}
-.hotspot-dot{width:14px;height:14px;border-radius:50%;background:var(--gold);border:2px solid rgba(5,5,6,.8);box-shadow:0 0 0 0 rgba(224,179,74,.6);animation:hsPulse 2.2s ease-out infinite;display:block}
-@keyframes hsPulse{0%{box-shadow:0 0 0 0 rgba(224,179,74,.5)}70%{box-shadow:0 0 0 12px rgba(224,179,74,0)}100%{box-shadow:0 0 0 0 rgba(224,179,74,0)}}
-.hotspot-label{position:absolute;top:20px;left:50%;transform:translateX(-50%);white-space:nowrap;background:rgba(5,5,6,.9);border:1px solid var(--border-hi);color:var(--white);font-family:var(--m);font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:5px 10px;border-radius:6px;opacity:0;pointer-events:none;transition:opacity .2s}
-.hotspot:hover .hotspot-label{opacity:1}
-
 /* ── EASTER EGG: ENERGY SURGE ────────────────────────────────────────── */
 .energy-surge{position:fixed;inset:0;z-index:9500;pointer-events:none;background:radial-gradient(circle at 50% 50%,rgba(226,38,58,.35),rgba(224,179,74,.15) 45%,transparent 75%);opacity:0}
 .energy-surge.fire{animation:surge .9s ease-out}
@@ -226,5 +220,5 @@ footer{position:relative;z-index:2;border-top:1px solid var(--border);padding:32
 
 @media(prefers-reduced-motion:reduce){
   .hp{display:none}
-  .milestone-dot,.bw-live-dot,.hotspot-dot{animation:none!important}
+  .milestone-dot,.bw-live-dot{animation:none!important}
 }
