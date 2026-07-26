@@ -32,22 +32,35 @@ const CONFIG = {
 })();
 
 // ── NAV — glass background + hide on scroll-down, reveal on scroll-up ───
+// Also drives the thin scroll-progress bar in the same rAF tick, since both
+// need the current scroll position and there's no reason to pay for two
+// scroll listeners.
 (function(){
   const nav=document.getElementById('nav');
-  if(!nav) return;
+  const progress=document.getElementById('scrollProgress');
+  if(!nav && !progress) return;
   let lastY=window.scrollY, ticking=false;
-  window.addEventListener('scroll',()=>{
-    if(ticking) return;
-    ticking=true;
-    requestAnimationFrame(()=>{
-      const y=window.scrollY;
+  function update(){
+    const y=window.scrollY;
+    if(nav){
       nav.classList.toggle('scrolled',y>10);
       if(y>lastY && y>140){ nav.classList.add('nav-hide'); }
       else{ nav.classList.remove('nav-hide'); }
-      lastY=y;
-      ticking=false;
-    });
+    }
+    if(progress){
+      const max=document.documentElement.scrollHeight-window.innerHeight;
+      const pct=max>0?(y/max)*100:0;
+      progress.style.width=pct+'%';
+    }
+    lastY=y;
+    ticking=false;
+  }
+  window.addEventListener('scroll',()=>{
+    if(ticking) return;
+    ticking=true;
+    requestAnimationFrame(update);
   },{passive:true});
+  update();
 })();
 
 // ── MAGNETIC BUTTONS ─────────────────────────────────────────────────────
