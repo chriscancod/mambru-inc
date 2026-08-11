@@ -141,7 +141,7 @@
     <div class="stl-wrap">
       <div id="stl-viewer"></div>
       <div class="stl-status" id="stl-status">Loading 3D preview…</div>
-      <div class="stl-hint">Drag to rotate · Scroll to zoom</div>
+      <div class="stl-hint">Drag to rotate · Scroll to zoom · Early design study, not to final thickness</div>
     </div>
     <div class="jump-chips">
       <a class="jump-chip" href="#spec-camera"><span class="jump-chip-dot"></span>Camera + gimbal</a>
@@ -195,12 +195,12 @@
     <div class="panel-inner" data-reveal>
       <p class="panel-eye">01 — Hardware</p>
       <h2 class="panel-title">Ours. Down to the board.</h2>
-      <p class="panel-body">Built around the <strong>Rockchip RK3588</strong> — eight cores and an onboard NPU, silicon usually reserved for flagship tablets, not phones — paired with an <strong>RK806 PMIC</strong> for rail distribution. We didn't license a reference design and skin it. We drew our own schematic, laid out our own 6-layer, 147×77mm carrier board, and built the handset PCB from a blank sheet.</p>
+      <p class="panel-body">Designed around the <strong>Rockchip RK3588</strong> — eight cores and an onboard NPU, silicon usually reserved for flagship tablets, not phones — paired with an <strong>RK806 PMIC</strong> for rail distribution. We're not licensing a reference design and skinning it. We're drawing our own schematic and laying out our own 6-layer, 147×77mm carrier board from a blank sheet. The block diagram and target spec are done; the net-level schematic and board layout are the work in front of us.</p>
       <div class="stat-strip">
         <div><b>RK3588</b>SoC</div>
         <div><b>16GB</b>LPDDR5</div>
         <div><b>256GB</b>eMMC</div>
-        <div><b>6-layer</b>PCB</div>
+        <div><b>6-layer</b>target</div>
       </div>
     </div>
   </div>
@@ -320,7 +320,7 @@
       <div class="spec-row" data-spec-row><div class="k">Chip</div><div class="v">Rockchip RK3588<small>8-core CPU, onboard NPU · RK806 PMIC for rail distribution</small></div></div>
       <div class="spec-row" data-spec-row><div class="k">Memory</div><div class="v">16GB LPDDR5<small>Dual 8GB dies flanking the SoC for matched trace lengths</small></div></div>
       <div class="spec-row" data-spec-row><div class="k">Storage</div><div class="v">256GB eMMC 5.1<small>Placed off-SoM to reduce board congestion</small></div></div>
-      <div class="spec-row" data-spec-row><div class="k">Board</div><div class="v">Custom 6-layer carrier + handset PCB<small>147 × 77mm, 1.0mm thick · 2oz copper power planes</small></div></div>
+      <div class="spec-row" data-spec-row><div class="k">Board</div><div class="v">Custom 6-layer carrier + handset PCB <em>(target)</em><small>147 × 77mm, 1.0mm thick · 2oz copper power planes — design target, layout in progress</small></div></div>
       <div class="spec-row" data-spec-row><div class="k">Connectivity</div><div class="v">Cellular / GPS / satellite modem, USB 3.1<small>Realtek RTS5411 PHY · antenna windows clear of grip zones</small></div></div>
       <div class="spec-row" id="spec-camera" data-spec-row><div class="k">Camera</div><div class="v">Main + ultrawide + gimbal stabilizer<small>MIPI-CSI, two-stage shutter — half-press focus, full-press capture</small></div></div>
       <div class="spec-row" data-spec-row><div class="k">Display</div><div class="v">Under-display camera, no notch<small>eDP interface, clean slab front</small></div></div>
@@ -344,22 +344,22 @@
       <div class="milestone done">
         <div class="milestone-dot"></div>
         <div class="milestone-label">Stage 01</div>
-        <div class="milestone-name">Schematic</div>
+        <div class="milestone-name">Block Diagram &amp; Spec</div>
       </div>
       <div class="milestone done">
         <div class="milestone-dot"></div>
         <div class="milestone-label">Stage 02</div>
-        <div class="milestone-name">Board Layout</div>
+        <div class="milestone-name">Launcher Software</div>
       </div>
       <div class="milestone active">
         <div class="milestone-dot"></div>
         <div class="milestone-label">Stage 03</div>
-        <div class="milestone-name">Launcher Software</div>
+        <div class="milestone-name">Net-Level Schematic</div>
       </div>
       <div class="milestone">
         <div class="milestone-dot"></div>
         <div class="milestone-label">Stage 04</div>
-        <div class="milestone-name">Board Bring-Up</div>
+        <div class="milestone-name">Board Layout &amp; Bring-Up</div>
       </div>
       <div class="milestone">
         <div class="milestone-dot"></div>
