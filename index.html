@@ -195,7 +195,7 @@
     <div class="panel-inner" data-reveal>
       <p class="panel-eye">01 — Hardware</p>
       <h2 class="panel-title">Ours. Down to the board.</h2>
-      <p class="panel-body">Designed around the <strong>Rockchip RK3588</strong> — eight cores and an onboard NPU, silicon usually reserved for flagship tablets, not phones — paired with an <strong>RK806 PMIC</strong> for rail distribution. We're not licensing a reference design and skinning it. We're drawing our own schematic and laying out our own 6-layer, 147×77mm carrier board from a blank sheet. The block diagram and target spec are done; the net-level schematic and board layout are the work in front of us.</p>
+      <p class="panel-body">Designed around the <strong>Rockchip RK3588</strong> — eight cores and an onboard NPU, silicon usually reserved for flagship tablets, not phones — powered by an <strong>RK806-1 PMIC</strong> plus three dedicated <strong>6A bucks</strong> — the two big-core clusters and the NPU are hungry enough to need their own regulators, so it's four power ICs before a single capacitor. We're not licensing a reference design and skinning it. We're drawing our own schematic and laying out our own 6-layer, 147×77mm carrier board from a blank sheet. The block diagram and target spec are done; the net-level schematic and board layout are the work in front of us.</p>
       <div class="stat-strip">
         <div><b>RK3588</b>SoC</div>
         <div><b>16GB</b>LPDDR5</div>
@@ -317,7 +317,7 @@
       <h2>Everything<br>in the shell.</h2>
     </div>
     <div class="spec-sheet">
-      <div class="spec-row" data-spec-row><div class="k">Chip</div><div class="v">Rockchip RK3588<small>8-core CPU, onboard NPU · RK806 PMIC for rail distribution</small></div></div>
+      <div class="spec-row" data-spec-row><div class="k">Chip</div><div class="v">Rockchip RK3588<small>8-core CPU, onboard NPU · RK806-1 PMIC + 3× 6A bucks for the big cores and NPU</small></div></div>
       <div class="spec-row" data-spec-row><div class="k">Memory</div><div class="v">16GB LPDDR5<small>Dual 8GB dies flanking the SoC for matched trace lengths</small></div></div>
       <div class="spec-row" data-spec-row><div class="k">Storage</div><div class="v">256GB eMMC 5.1<small>Placed off-SoM to reduce board congestion</small></div></div>
       <div class="spec-row" data-spec-row><div class="k">Board</div><div class="v">Custom 6-layer carrier + handset PCB <em>(target)</em><small>147 × 77mm, 1.0mm thick · 2oz copper power planes — design target, layout in progress</small></div></div>
