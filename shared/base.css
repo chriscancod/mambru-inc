@@ -108,6 +108,7 @@ nav.nav-hide{transform:translateY(-100%)}
 /* ── FOOTER ── */
 footer{position:relative;z-index:2;border-top:1px solid var(--border);padding:32px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}
 .footer-logo{font-family:var(--d);font-weight:800;font-size:16px;letter-spacing:-.01em;color:rgba(245,243,240,.3)}
+.footer-tagline{font-family:var(--m);font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-top:6px}
 .footer-links{display:flex;gap:28px}
 .footer-links a{font-size:11px;letter-spacing:.05em;color:rgba(245,243,240,.35);text-decoration:none;transition:color .2s}
 .footer-links a:hover{color:var(--red)}

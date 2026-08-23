@@ -11,6 +11,14 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Veynor Solis — Mambru Inc">
 <meta property="og:description" content="Custom Android UI. Custom RK3588 board. Solar + thermal-hybrid power. Join the waitlist for daily build updates.">
+<meta property="og:url" content="https://mambru.online/">
+<meta property="og:image" content="https://mambru.online/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Veynor Solis — Mambru Inc">
+<meta name="twitter:description" content="Custom Android UI. Custom RK3588 board. Solar + thermal-hybrid power.">
+<meta name="twitter:image" content="https://mambru.online/assets/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -401,24 +409,24 @@
     <h2>Before you join the list.</h2>
     <div class="faq-list">
       <div class="faq-item open">
-        <button class="faq-q">Is this a real charge today?<span class="chev">+</span></button>
-        <div class="faq-a"><p>No. Joining the waitlist is just an email address — nothing is charged. When real preorders open, the list gets the first email, before anyone else.</p></div>
+        <button class="faq-q" id="faq-q-1" aria-expanded="true" aria-controls="faq-a-1">Is this a real charge today?<span class="chev">+</span></button>
+        <div class="faq-a" id="faq-a-1" role="region" aria-labelledby="faq-q-1"><p>No. Joining the waitlist is just an email address — nothing is charged. When real preorders open, the list gets the first email, before anyone else.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">When does it ship?<span class="chev">+</span></button>
-        <div class="faq-a"><p>There's no fixed ship date yet. This is early hardware, still in active development — we'd rather tell you honestly than promise a date we can't hit.</p></div>
+        <button class="faq-q" id="faq-q-2" aria-expanded="false" aria-controls="faq-a-2">When does it ship?<span class="chev">+</span></button>
+        <div class="faq-a" id="faq-a-2" role="region" aria-labelledby="faq-q-2"><p>There's no fixed ship date yet. This is early hardware, still in active development — we'd rather tell you honestly than promise a date we can't hit.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">Why a waitlist instead of a preorder button?<span class="chev">+</span></button>
-        <div class="faq-a"><p>We want the first checkout batch to go to people who actually want build updates, not just an impulse click. The waitlist gets first access once preorders open for real.</p></div>
+        <button class="faq-q" id="faq-q-3" aria-expanded="false" aria-controls="faq-a-3">Why a waitlist instead of a preorder button?<span class="chev">+</span></button>
+        <div class="faq-a" id="faq-a-3" role="region" aria-labelledby="faq-q-3"><p>We want the first checkout batch to go to people who actually want build updates, not just an impulse click. The waitlist gets first access once preorders open for real.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">What about refunds, once preorders open?<span class="chev">+</span></button>
-        <div class="faq-a"><p>We'll publish a clear refund policy before taking any payment. Nothing today involves money changing hands.</p></div>
+        <button class="faq-q" id="faq-q-4" aria-expanded="false" aria-controls="faq-a-4">What about refunds, once preorders open?<span class="chev">+</span></button>
+        <div class="faq-a" id="faq-a-4" role="region" aria-labelledby="faq-q-4"><p>We'll publish a clear refund policy before taking any payment. Nothing today involves money changing hands.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">Can I follow the build somewhere?<span class="chev">+</span></button>
-        <div class="faq-a"><p>Not through a public feed yet — join the waitlist and we'll email progress directly as it happens.</p></div>
+        <button class="faq-q" id="faq-q-5" aria-expanded="false" aria-controls="faq-a-5">Can I follow the build somewhere?<span class="chev">+</span></button>
+        <div class="faq-a" id="faq-a-5" role="region" aria-labelledby="faq-q-5"><p>Not through a public feed yet — join the waitlist and we'll email progress directly as it happens.</p></div>
       </div>
     </div>
   </div>
@@ -439,7 +447,10 @@
 </section>
 
 <footer>
-  <div class="footer-logo"><svg class="brand-mark" viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="22" fill="#050506"/><path d="M22 78 L22 22 L38 22 L50 52 L62 22 L78 22 L78 78 L64 78 L64 42 L54 78 L46 78 L36 42 L36 78 Z" fill="#3a3a42"/></svg>Mambru Inc</div>
+  <div>
+    <div class="footer-logo"><svg class="brand-mark" viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="22" fill="#050506"/><path d="M22 78 L22 22 L38 22 L50 52 L62 22 L78 22 L78 78 L64 78 L64 42 L54 78 L46 78 L36 42 L36 78 Z" fill="#3a3a42"/></svg>Mambru Inc</div>
+    <p class="footer-tagline">Be The Best.</p>
+  </div>
   <div class="footer-links">
     <a href="home.html">Home</a>
     <a href="mailto:chrisclm713@gmail.com">Contact</a>

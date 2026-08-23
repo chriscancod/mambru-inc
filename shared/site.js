@@ -149,13 +149,25 @@ document.addEventListener('DOMContentLoaded',()=>{
 })();
 
 // ── FAQ ACCORDION ─────────────────────────────────────────────────────────
+// Screen readers had no idea these were expandable — the .open class drove
+// the CSS reveal but nothing ever touched aria-expanded, so a closed answer
+// and an open one looked identical to assistive tech. Now the button that
+// gets clicked (and every button this closes) has its aria-expanded kept in
+// sync with the actual open/closed state.
 document.addEventListener('click',(e)=>{
   const q=e.target.closest('.faq-q');
   if(!q) return;
   const item=q.closest('.faq-item');
   const wasOpen=item.classList.contains('open');
-  item.parentElement.querySelectorAll('.faq-item.open').forEach(i=>{ if(i!==item) i.classList.remove('open'); });
+  item.parentElement.querySelectorAll('.faq-item.open').forEach(i=>{
+    if(i!==item){
+      i.classList.remove('open');
+      const otherQ=i.querySelector('.faq-q');
+      if(otherQ) otherQ.setAttribute('aria-expanded','false');
+    }
+  });
   item.classList.toggle('open',!wasOpen);
+  q.setAttribute('aria-expanded',String(!wasOpen));
 });
 
 // ── LIVE BATTERY / TEG WIDGET ─────────────────────────────────────────────
