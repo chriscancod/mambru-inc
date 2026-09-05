@@ -1,12 +1,26 @@
 // MAMBRU INC — shared site behavior: custom cursor, glass nav that hides on
 // scroll-down / reveals on scroll-up, magnetic CTAs, and the waitlist form
 // submit handler shared by every page that embeds a .waitlist form.
+// Last edited: 2026-09-04 08:35 AM EDT (BACKEND_URL comment corrected — see find-and-fix-5
+// roadmap entry)
 
 const CONFIG = {
-  // Same backend already running Mambru Inc's other storefronts — the
-  // drop-signup endpoint just inserts an email into a brand-agnostic
-  // Postgres table, no payment/cart coupling, so it's safe to reuse here.
-  BACKEND_URL: 'https://cungus-production.up.railway.app',
+  // BOTTLENECK FIX (2026-08-29): this used to point at cungus's shared
+  // backend — meaning Mambru Inc's only working conversion path (the
+  // waitlist) went down any time cungus's backend did, for reasons that had
+  // nothing to do with Mambru Inc. Chris's call: keep the waitlist (no
+  // checkout until there's a real prototype) but give it its own backend —
+  // see /veynor-backend/README.md in the project root for what that is and
+  // how to deploy it.
+  //
+  // No longer a placeholder — this is the real, deployed veynor-backend service (confirmed
+  // live via its health check on 2026-09-04). It was live but still broken until this same
+  // round: POST /api/drop-signup was 500ing on the deployed service because its one table was
+  // never actually created (see veynor-backend/server.js's ensureSchema() fix, 2026-09-04) —
+  // fixed there, not here; this URL itself was already correct. Same request/response shape as
+  // before (POST /api/drop-signup, {email} in, {success} out) so nothing else in this file
+  // needs to change once that backend redeploys.
+  BACKEND_URL: 'https://veynor-backend-production.up.railway.app',
 };
 
 // ── CURSOR ──────────────────────────────────────────────────────────────
@@ -130,7 +144,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 (function(){
   if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   document.querySelectorAll('.hero-particles').forEach(container=>{
-    const COLORS=['#e2263a','#e0b34a'];
+    const COLORS=['#e2263a','#f5f3f0'];
     const COUNT=22;
     for(let i=0;i<COUNT;i++){
       const p=document.createElement('div');

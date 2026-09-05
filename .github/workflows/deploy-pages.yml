@@ -1,0 +1,51 @@
+name: Deploy Pages
+
+# Replaces the classic "Deploy from a branch" Pages setup with a real CI
+# pipeline: every push to main gets its own visible pass/fail run in the
+# Actions tab (deploy status used to be invisible outside the Pages settings
+# page), and the deployed artifact is exactly what's checked out here rather
+# than depending on GitHub's own branch-polling. This is a static site with
+# no build step (plain HTML/CSS/JS, no package.json) so there's nothing to
+# compile — this just gives the deploy itself a real, checkable status.
+#
+# ONE-TIME SETUP NEEDED (can't be done from a workflow file — repo owner
+# only): GitHub repo → Settings → Pages → "Build and deployment" → change
+# Source from "Deploy from a branch" to "GitHub Actions". Until that's
+# flipped, this workflow will run but Pages will keep serving from the old
+# branch-deploy mechanism instead of this one.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload site as Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -7,7 +7,7 @@
 <meta name="description" content="Mambru Inc designs and builds its own hardware from the schematic up — starting with Veynor Solis, a solar/thermal-hybrid Android handset.">
 <meta name="theme-color" content="#050506">
 <link rel="canonical" href="https://mambru.online/home.html">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%27 height=%27100%27 rx=%2722%27 fill=%27%23050506%27/%3E%3Cdefs%3E%3ClinearGradient id=%27g%27 x1=%270%27 y1=%270%27 x2=%271%27 y2=%271%27%3E%3Cstop offset=%270%25%27 stop-color=%27%23e2263a%27/%3E%3Cstop offset=%27100%25%27 stop-color=%27%23e0b34a%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d=%27M22 78 L22 22 L38 22 L50 52 L62 22 L78 22 L78 78 L64 78 L64 42 L54 78 L46 78 L36 42 L36 78 Z%27 fill=%27url(%23g)%27/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%27 height=%27100%27 rx=%2722%27 fill=%27%23050506%27/%3E%3Cdefs%3E%3ClinearGradient id=%27g%27 x1=%270%27 y1=%270%27 x2=%271%27 y2=%271%27%3E%3Cstop offset=%270%25%27 stop-color=%27%23e2263a%27/%3E%3Cstop offset=%27100%25%27 stop-color=%27%23f5f3f0%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d=%27M22 78 L22 22 L38 22 L50 52 L62 22 L78 22 L78 78 L64 78 L64 42 L54 78 L46 78 L36 42 L36 78 Z%27 fill=%27url(%23g)%27/%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Mambru Inc — Hardware, built from a blank sheet">
 <meta property="og:description" content="Mambru Inc designs and builds its own hardware from the schematic up — starting with Veynor Solis, a solar/thermal-hybrid Android handset.">
@@ -51,6 +51,18 @@
 .founder-inner p strong{color:var(--white);font-weight:600}
 .founder-sign{font-family:var(--dh);font-weight:600;font-size:15px;color:var(--white);margin-top:32px}
 .founder-sign span{display:block;font-family:var(--m);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+
+/* ── CARD HOVER — was static; art now drifts + lifts like index.html's panels ── */
+.pc{transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.pc .pc-art{transition:transform .6s cubic-bezier(.16,1,.3,1)}
+.pc .pc-scrim{transition:opacity .4s}
+.pc:not(.soon):hover{transform:translateY(-6px)}
+.pc:not(.soon):hover .pc-art{transform:scale(1.06)}
+.pc:not(.soon):hover .pc-scrim{opacity:.85}
+
+@media(prefers-reduced-motion:reduce){
+  .pc,.pc .pc-art,.pc .pc-scrim{transition:none!important}
+}
 </style>
 </head>
 <body>
@@ -59,7 +71,7 @@
 <div class="scroll-progress" id="scrollProgress"></div>
 
 <nav id="nav">
-  <a href="index.html" class="nav-logo"><svg class="brand-mark" viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="22" fill="#050506"/><defs><linearGradient id="navg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#e2263a"/><stop offset="100%" stop-color="#e0b34a"/></linearGradient></defs><path d="M22 78 L22 22 L38 22 L50 52 L62 22 L78 22 L78 78 L64 78 L64 42 L54 78 L46 78 L36 42 L36 78 Z" fill="url(#navg)"/></svg>Mambru Inc</a>
+  <a href="index.html" class="nav-logo"><svg class="brand-mark" viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="22" fill="#050506"/><defs><linearGradient id="navg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#e2263a"/><stop offset="100%" stop-color="#f5f3f0"/></linearGradient></defs><path d="M22 78 L22 22 L38 22 L50 52 L62 22 L78 22 L78 78 L64 78 L64 42 L54 78 L46 78 L36 42 L36 78 Z" fill="url(#navg)"/></svg>Mambru Inc</a>
   <div class="nav-center">
     <a href="home.html" class="active">Home</a>
     <a href="index.html">Veynor Solis</a>
@@ -87,13 +99,13 @@
 
 <!-- PRODUCTS -->
 <section class="products-section diag-divider">
-  <div class="wrap products-head">
+  <div class="wrap products-head" data-reveal>
     <p class="mh-eye">— Products</p>
     <h2>One shipped. More on the bench.</h2>
   </div>
   <div class="wrap">
     <div class="prod-grid">
-      <a href="index.html" class="pc">
+      <a href="index.html" class="pc" data-reveal-card>
         <div class="pc-art">
           <svg viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
             <defs><radialGradient id="pg1" cx="35%" cy="25%" r="85%"><stop offset="0%" stop-color="#1a0d10"/><stop offset="55%" stop-color="#08080b"/><stop offset="100%" stop-color="#050506"/></radialGradient></defs>
@@ -102,8 +114,8 @@
               <path d="M80 700 h140 v-140 h120 v-200 h180"/>
               <path d="M140 850 h100 v-90 h160 v-160 h140"/>
             </g>
-            <circle cx="220" cy="700" r="5" fill="#e0b34a" opacity=".8"/>
-            <circle cx="460" cy="360" r="4" fill="#e0b34a" opacity=".7"/>
+            <circle cx="220" cy="700" r="5" fill="#f5f3f0" opacity=".8"/>
+            <circle cx="460" cy="360" r="4" fill="#f5f3f0" opacity=".7"/>
           </svg>
         </div>
         <div class="pc-scrim"></div>
@@ -114,7 +126,7 @@
           <span class="pc-cta">Explore the build →</span>
         </div>
       </a>
-      <div class="pc soon">
+      <div class="pc soon" data-reveal-card>
         <div class="pc-art">
           <svg viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
             <defs><radialGradient id="pg2" cx="65%" cy="70%" r="85%"><stop offset="0%" stop-color="#141018"/><stop offset="55%" stop-color="#08080b"/><stop offset="100%" stop-color="#050506"/></radialGradient></defs>
@@ -138,7 +150,7 @@
 
 <!-- FOUNDER'S NOTE -->
 <section class="founder-note diag-divider">
-  <div class="founder-inner">
+  <div class="founder-inner" data-reveal>
     <p class="mh-eye">— Why We're Doing This</p>
     <h2>We got tired of hardware we couldn't open.</h2>
     <p>Every phone on the market today is glued shut, soldered together, and designed to be replaced the moment the battery degrades or a part fails. That's not a technical limitation — it's a choice manufacturers make, over and over, because a phone you can't repair is a phone you eventually have to buy again.</p>
@@ -150,7 +162,7 @@
 
 <!-- WAITLIST -->
 <section class="manifesto diag-divider" id="waitlist">
-  <div class="manifesto-inner">
+  <div class="manifesto-inner" data-reveal>
     <p class="mh-eye" style="justify-content:center;display:flex;margin-bottom:20px">— Stay Ahead of the Build</p>
     <form class="waitlist" data-waitlist>
       <input class="waitlist-input" type="email" placeholder="you@email.com" required>
@@ -173,5 +185,25 @@
 </footer>
 
 <script src="shared/site.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+if(window.gsap && window.ScrollTrigger && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Section headings / copy blocks: same fade-up-on-enter as index.html's panels.
+  document.querySelectorAll('[data-reveal]').forEach(el=>{
+    gsap.fromTo(el,{autoAlpha:0,y:50},{autoAlpha:1,y:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 80%'}});
+  });
+
+  // Product cards: staggered fade-up as the grid enters, then a slow art
+  // parallax while the grid is in view (independent of the hover polish above).
+  gsap.fromTo('[data-reveal-card]',{autoAlpha:0,y:60},{autoAlpha:1,y:0,duration:.9,ease:'power3.out',stagger:.12,scrollTrigger:{trigger:'.prod-grid',start:'top 82%'}});
+  document.querySelectorAll('[data-reveal-card] .pc-art').forEach(art=>{
+    gsap.fromTo(art,{yPercent:-6},{yPercent:6,ease:'none',scrollTrigger:{trigger:art.closest('[data-reveal-card]'),start:'top bottom',end:'bottom top',scrub:true}});
+  });
+}
+</script>
 </body>
 </html>
