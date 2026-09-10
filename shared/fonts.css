@@ -1,0 +1,47 @@
+/* Self-hosted fonts — added 2026-09-10, Rotation 1 (Brand).
+   Was loading Inter/Space Grotesk/Space Mono from fonts.googleapis.com +
+   fonts.gstatic.com on every page (index.html, home.html, reset-password.html)
+   — same third-party-IP-leak pattern already fixed on the cungus/2AM site
+   this morning (self-hosted there for the same reason: GDPR-relevant, and
+   removes a render-blocking cross-origin round trip). Inter and Space
+   Grotesk both ship as real variable fonts (confirmed via fontTools —
+   Inter's wght axis covers 100–900, Space Grotesk's covers 300–700), so one
+   file each covers every weight this site actually uses instead of needing
+   a separate static file per weight. Space Mono isn't variable upstream, so
+   it's two static files (400/700) same as Google served it. Latin subset
+   only, matching what these pages actually render (no cyrillic/greek/
+   vietnamese text anywhere in this ecosystem's copy). 103KB total across 4
+   files vs. the external request chain (preconnect x2 + stylesheet + font
+   files) this replaces. */
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('fonts/inter.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('fonts/space-grotesk.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/space-mono-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('fonts/space-mono-700.woff2') format('woff2');
+}

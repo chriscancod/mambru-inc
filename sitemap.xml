@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Added 2026-09-10, Rotation 1 (Brand) — mambru-inc had neither a
+     sitemap.xml nor a robots.txt at all (checked directly, not assumed);
+     cungus/2AM has had both since 2026-09-08/09. reset-password.html is
+     left out here the same way order-confirmation/payment-declined are
+     left out of cungus's sitemap — it's already marked noindex (private,
+     token-specific, nothing to rank), same reasoning, just applied to this
+     repo for the first time. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://mambru.online/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://mambru.online/home.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>
