@@ -206,7 +206,7 @@
       <p class="panel-body">Designed around the <strong>Rockchip RK3588</strong> — eight cores and an onboard NPU, silicon usually reserved for flagship tablets, not phones — powered by an <strong>RK806-1 PMIC</strong> plus three dedicated <strong>6A bucks</strong> — the two big-core clusters and the NPU are hungry enough to need their own regulators, so it's four power ICs before a single capacitor. We're not licensing a reference design and skinning it. We're drawing our own schematic and laying out our own 6-layer, 147×77mm carrier board from a blank sheet. The block diagram and target spec are done; the net-level schematic and board layout are the work in front of us.</p>
       <div class="stat-strip">
         <div><b>RK3588</b>SoC</div>
-        <div><b>16GB</b>LPDDR5</div>
+        <div><b>16GB</b>LPDDR4X</div>
         <div><b>256GB</b>eMMC</div>
         <div><b>6-layer</b>target</div>
       </div>
@@ -326,7 +326,7 @@
     </div>
     <div class="spec-sheet">
       <div class="spec-row" data-spec-row><div class="k">Chip</div><div class="v">Rockchip RK3588<small>8-core CPU, onboard NPU · RK806-1 PMIC + 3× 6A bucks for the big cores and NPU</small></div></div>
-      <div class="spec-row" data-spec-row><div class="k">Memory</div><div class="v">16GB LPDDR5<small>Dual 8GB dies flanking the SoC for matched trace lengths</small></div></div>
+      <div class="spec-row" data-spec-row><div class="k">Memory</div><div class="v">16GB LPDDR4X<small>Dual 8GB dies flanking the SoC for matched trace lengths — the Rock 5B reference board this design's rail map is read from is LPDDR4X, so that's the real first-board spec</small></div></div>
       <div class="spec-row" data-spec-row><div class="k">Storage</div><div class="v">256GB eMMC 5.1<small>Placed off-SoM to reduce board congestion</small></div></div>
       <div class="spec-row" data-spec-row><div class="k">Board</div><div class="v">Custom 6-layer carrier + handset PCB <em>(target)</em><small>147 × 77mm, 1.0mm thick · 2oz copper power planes — design target, layout in progress</small></div></div>
       <div class="spec-row" data-spec-row><div class="k">Connectivity</div><div class="v">Cellular / GPS / satellite modem, USB 3.1<small>Realtek RTS5411 PHY · antenna windows clear of grip zones</small></div></div>
