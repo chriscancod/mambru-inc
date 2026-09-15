@@ -19,6 +19,18 @@
 <meta name="twitter:title" content="Veynor Solis — Mambru Inc">
 <meta name="twitter:description" content="Custom Android UI. Custom RK3588 board. Solar + thermal-hybrid power.">
 <meta name="twitter:image" content="https://mambru.online/assets/og-image.png">
+<!-- Product schema (2026-09-15, rotation 1 brand) — this is the actual
+     Veynor Solis product page (the site's real flagship/most-linked page,
+     per the project's own map) and it had zero structured data, same gap
+     home.html had before its 2026-09-10 Organization JSON-LD fix. Product,
+     not Organization, since this page is about the phone specifically —
+     matches cungus/product.html's real Product schema pattern. Deliberately
+     NO "offers"/price/availability block: Veynor Solis isn't sellable yet
+     (waitlist only, no checkout, no price set anywhere on this site), and
+     Google's own structured-data guidelines treat a Product's offers as an
+     availability claim — publishing one here would assert something false.
+     Add it for real once preorders actually open. -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Veynor Solis","description":"Custom Android UI, custom RK3588 board, solar + thermal-hybrid power — a phone built from the schematic up by Mambru Inc.","image":"https://mambru.online/assets/og-image.png","brand":{"@type":"Brand","name":"Mambru Inc"}}</script>
 <link rel="stylesheet" href="shared/fonts.css">
 <link rel="stylesheet" href="shared/base.css">
 <style>
@@ -205,7 +217,7 @@
       <div class="stat-strip">
         <div><b>RK3588</b>SoC</div>
         <div><b>16GB</b>LPDDR4X</div>
-        <div><b>256GB</b>eMMC</div>
+        <div><b>128GB</b>eMMC</div>
         <div><b>6-layer</b>target</div>
       </div>
     </div>
@@ -325,7 +337,7 @@
     <div class="spec-sheet">
       <div class="spec-row" data-spec-row><div class="k">Chip</div><div class="v">Rockchip RK3588<small>8-core CPU, onboard NPU · RK806-1 PMIC + 3× 6A bucks for the big cores and NPU</small></div></div>
       <div class="spec-row" data-spec-row><div class="k">Memory</div><div class="v">16GB LPDDR4X<small>Dual 8GB dies flanking the SoC for matched trace lengths — the Rock 5B reference board this design's rail map is read from is LPDDR4X, so that's the real first-board spec</small></div></div>
-      <div class="spec-row" data-spec-row><div class="k">Storage</div><div class="v">256GB eMMC 5.1<small>Placed off-SoM to reduce board congestion</small></div></div>
+      <div class="spec-row" data-spec-row><div class="k">Storage</div><div class="v">128GB eMMC 5.1<small>Placed off-SoM to reduce board congestion — dropped from an original 256GB target after real distributor checks found no in-stock, single-unit 256GB eMMC 5.1 in this footprint; 128GB has real, live supply</small></div></div>
       <div class="spec-row" data-spec-row><div class="k">Board</div><div class="v">Custom 6-layer carrier + handset PCB <em>(target)</em><small>147 × 77mm, 1.0mm thick · 2oz copper power planes — design target, layout in progress</small></div></div>
       <div class="spec-row" data-spec-row><div class="k">Connectivity</div><div class="v">Cellular / GPS / satellite modem, USB 3.1<small>Realtek RTS5411 PHY · antenna windows clear of grip zones</small></div></div>
       <div class="spec-row" id="spec-camera" data-spec-row><div class="k">Camera</div><div class="v">Main + ultrawide + gimbal stabilizer<small>MIPI-CSI, two-stage shutter — half-press focus, full-press capture</small></div></div>
@@ -333,7 +345,7 @@
       <div class="spec-row" id="spec-power" data-spec-row><div class="k">Power</div><div class="v">Solar band + TEG thermal reclaim<small>Waste heat off the SoC trickle-charges the battery via a dedicated MPPT + boost circuit</small></div></div>
       <div class="spec-row" id="spec-battery" data-spec-row><div class="k">Battery</div><div class="v">Tool-free removable tray<small>Magnetic pogo-pin charging — no port to wear out or let water in</small></div></div>
       <div class="spec-row" id="spec-controls" data-spec-row><div class="k">Controls</div><div class="v">Knurled digital dial<small>Tactile scrub/volume control, amber inlay</small></div></div>
-      <div class="spec-row" data-spec-row><div class="k">Enclosure</div><div class="v">Ceramic composite / Mg alloy<small>Matte graphite, champagne trim · 7.4mm target profile</small></div></div>
+      <div class="spec-row" data-spec-row><div class="k">Enclosure</div><div class="v">Ceramic composite / Mg alloy<small>Matte graphite, champagne trim · ~9.5–10mm target profile</small></div></div>
       <div class="spec-row" data-spec-row><div class="k">Software</div><div class="v">Custom Compose UI on Android 14<small>Camera, Gallery, Messages, Calendar, Notes, Music, Clock, Settings, Mambru Pay</small></div></div>
       <div class="spec-row" data-spec-row><div class="k">Payments</div><div class="v">Mambru Pay — request/accept, live today<small>Runs over the account backend, not NFC — tap-to-pay is a hardware phase we haven't built yet</small></div></div>
       <div class="spec-row" data-spec-row><div class="k">Upgrade path</div><div class="v">Swap the board, keep the shell<small>Upgradable at any time</small></div></div>

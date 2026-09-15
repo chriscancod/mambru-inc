@@ -103,6 +103,19 @@ const CONFIG = {
 // Any <form class="waitlist" data-waitlist> with an <input type=email> and
 // a submit button wires up automatically — used on the home page and the
 // Veynor Solis page alike.
+//
+// Fixed 2026-09-15 (rotation 1 brand): this was still `.includes('@')`,
+// which a bare "@" or "a@b" passes straight through. cungus/shared/cart.js
+// hit the exact same bug and fixed it project-wide back on 2026-09-08/09
+// (rotation 1 branding audit, items #17/#36/#37) — every signup/checkout
+// email field over there got the real EMAIL_RE regex, but this file is a
+// separate site (mambru-inc) with its own copy of the same form pattern,
+// and the fix never reached it. This matters more here than it did for a
+// newsletter signup: per this file's own CONFIG comment above, the
+// waitlist is Mambru Inc's ONLY working conversion path right now (no
+// checkout exists yet) — a typo'd address here means someone who wanted in
+// on the drop never hears about it, with zero other way to reach them.
+const EMAIL_RE=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 async function submitWaitlist(e){
   e.preventDefault();
   const form=e.target;
@@ -110,7 +123,7 @@ async function submitWaitlist(e){
   const status=form.parentElement.querySelector('.waitlist-status');
   const btn=form.querySelector('button');
   const email=input.value.trim();
-  if(!email.includes('@')){
+  if(!EMAIL_RE.test(email)){
     if(status){status.textContent='Enter a valid email';status.className='waitlist-status err';}
     return false;
   }
