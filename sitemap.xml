@@ -21,4 +21,8 @@
     <loc>https://mambru.online/right-to-repair.html</loc>
     <changefreq>monthly</changefreq>
   </url>
+  <url>
+    <loc>https://mambru.online/veynor/ideas/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
 </urlset>
