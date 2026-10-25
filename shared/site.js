@@ -198,17 +198,15 @@ document.addEventListener('click',(e)=>{
 });
 
 // ── LIVE BATTERY / TEG WIDGET ─────────────────────────────────────────────
-// Ties the marketing page to the real Thermal screen in the launcher: reads
-// the visitor's own device battery where the Battery Status API is
-// available, and derives a simulated "TEG trickle" number from it. Falls
-// back to a clearly-labeled demo state where the API doesn't exist (most
-// desktop/iOS browsers dropped it for fingerprinting reasons).
+// Shows the visitor's own device battery where the Battery Status API is
+// available. No solar or thermal number is shown: nothing has been built or
+// measured yet. Falls back to a clearly-labeled example reading where the API
+// doesn't exist (most desktop/iOS browsers dropped it for fingerprinting reasons).
 (function(){
   const widget=document.querySelector('[data-battery-widget]');
   if(!widget) return;
   const levelEl=widget.querySelector('[data-bw-level]');
   const stateEl=widget.querySelector('[data-bw-state]');
-  const trickleEl=widget.querySelector('[data-bw-trickle]');
   const barEl=widget.querySelector('[data-bw-bar]');
   const noteEl=widget.querySelector('[data-bw-note]');
   const liveEl=widget.querySelector('[data-bw-live]');
@@ -218,12 +216,10 @@ document.addEventListener('click',(e)=>{
     if(levelEl) levelEl.textContent=pct+'%';
     if(stateEl) stateEl.textContent=charging?'Charging':'On battery';
     if(barEl) barEl.style.width=pct+'%';
-    const trickle=(charging?2.4:0.3)+(Math.sin(Date.now()/4000)*0.3);
-    if(trickleEl) trickleEl.textContent=(trickle>=0?'+':'')+trickle.toFixed(1)+'%/hr';
     if(liveEl) liveEl.style.display=isLive?'flex':'none';
     if(noteEl) noteEl.textContent=isLive
-      ? "That's your actual device battery, read live — the same reading Veynor Solis's Thermal screen shows, next to a simulated solar/TEG trickle number."
-      : 'Your browser doesn’t expose live battery data (most desktop and iOS browsers dropped that API) — this is a demo of what the Thermal screen looks like on Veynor Solis itself.';
+      ? "That's your actual device battery, read live. We show no solar number because the Veynor Solis solar band hasn't been built or measured yet."
+      : 'Your browser doesn’t expose live battery data (most desktop and iOS browsers dropped that API) — this is an example reading, not a Veynor Solis.';
   }
 
   if('getBattery' in navigator){
@@ -257,7 +253,7 @@ document.addEventListener('click',(e)=>{
       surge.addEventListener('animationend',()=>surge.remove());
       const toast=document.createElement('div');
       toast.className='energy-toast';
-      toast.textContent='⚡ TEG overload — thermal reclaim maxed';
+      toast.textContent='⚡ Energy surge';
       document.body.appendChild(toast);
       requestAnimationFrame(()=>toast.classList.add('show'));
       setTimeout(()=>{toast.classList.remove('show');setTimeout(()=>toast.remove(),400);},2200);
