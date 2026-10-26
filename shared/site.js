@@ -116,6 +116,8 @@ const CONFIG = {
 // checkout exists yet) — a typo'd address here means someone who wanted in
 // on the drop never hears about it, with zero other way to reach them.
 const EMAIL_RE=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+// Start the invisible check the first time a visitor touches a waitlist form.
+document.querySelectorAll('form[data-waitlist]').forEach(f=>{ if(window.VeynorCaptcha) window.VeynorCaptcha.watch(f,CONFIG.BACKEND_URL,'signup'); });
 async function submitWaitlist(e){
   e.preventDefault();
   const form=e.target;
@@ -129,9 +131,12 @@ async function submitWaitlist(e){
   }
   btn.disabled=true;
   try{
+    // Invisible bot check (shared/captcha.js): an answer solved in the background plus a hidden honeypot field.
+    // If it is missing or blocked the form still submits and the server decides.
+    const extra=window.VeynorCaptcha?await window.VeynorCaptcha.fields(form):{};
     const r=await fetch(`${CONFIG.BACKEND_URL}/api/drop-signup`,{
       method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({email}),
+      body:JSON.stringify({email,...extra}),
     });
     const d=await r.json();
     if(!d.success) throw new Error(d.error||'Could not join the waitlist');
