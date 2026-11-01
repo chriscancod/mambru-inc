@@ -95,3 +95,5 @@ footer img{height:40px;mix-blend-mode:multiply;margin-bottom:10px}
 #stl .st{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#8e8e93;font:500 13px var(--s)}
 .hintt{font-size:12px;color:#8e8e93;margin-top:10px}
 @media(max-width:640px){.spec div{grid-template-columns:1fr;gap:4px}}
+
+.wl-status.ok{color:#1d7a3a}.wl-status.err{color:#b3261e}

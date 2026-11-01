@@ -106,8 +106,8 @@
 <section class="tile" id="waitlist">
 <h2>Be first in line.</h2>
 <p class="sub">No payment today. We will email you build updates and the moment preorders open.</p>
-<form class="wl" onsubmit="return false"><input type="email" placeholder="you@email.com" aria-label="Email address"><button disabled title="Preview: not connected yet">Join waitlist</button></form>
-<p class="fine">Preview: this form is not connected yet.</p>
+<form class="wl" data-waitlist><input type="email" required placeholder="you@email.com" aria-label="Email address" autocomplete="email"><button type="submit">Join waitlist</button></form>
+<p class="fine wl-status" role="status">Just your email. No payment, no spam. Under 13? Ask a parent first. We only use it to tell you about Veynor.</p>
 </section>
 
 <script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}</script>
@@ -129,4 +129,5 @@ async function go(){
 if('IntersectionObserver' in window){const o=new IntersectionObserver(e=>{if(e[0].isIntersecting){o.disconnect();go()}},{rootMargin:'400px 0px'});o.observe(box)}else go();
 </script>
 <footer><img src="logo-full.png" alt="Veynor"><div>© 2026 Mambru Inc. · Veynor products are in development. Preview build.</div></footer>
+<script src="../shared/captcha.js"></script><script src="waitlist.js"></script>
 </body></html>
