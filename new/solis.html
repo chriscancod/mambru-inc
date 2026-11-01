@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Veynor Solis — a phone in development</title>
+<meta name="description" content="Veynor Solis: our own phone, on a custom board, with a solar top-up band and software we wrote ourselves. Early hardware in active development.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head><body>
+<div class="bar">Preview only · not live · nothing here is for sale</div>
+<nav><a class="logo" href="index.html"><img src="logo-mark.png" alt="Veynor"></a>
+<div class="l"><a href="charm.html">Charm</a><a href="solis.html">Solis</a><a href="solis.html#os">Veynor OS</a></div>
+<a class="cta" href="charm.html#waitlist">Join waitlist</a></nav>
+
+
+<header class="hero">
+<p style="font:600 15px var(--s);color:#bf4800;margin-bottom:10px">In development</p>
+<h1>Veynor Solis.</h1>
+<p class="lead">A phone we couldn't buy. So we're building it.</p>
+<a class="pill" href="#waitlist">Join the waitlist</a><a class="pill o" href="#specs">See the specs ›</a>
+<div id="stl"><div class="st" id="stlst">Loading 3D preview…</div></div>
+<p class="hintt">Drag to rotate · Scroll to zoom · Early design study, not final thickness</p>
+</header>
+
+<section class="tile dark">
+<p class="eyebrow">01 · Hardware</p>
+<h2>Ours. Down to the board.</h2>
+<p class="sub">Built around the Rockchip RK3588, eight cores and an onboard NPU, chip class usually found in flagship tablets rather than phones.</p>
+<div class="facts">
+<div class="fact"><b>RK3588</b><span>8-core CPU and NPU, with its own power chip and three 6 A converters.</span></div>
+<div class="fact"><b>8 GB memory</b><span>On the first board. 16 GB is a later target and costs about twice as much memory.</span></div>
+<div class="fact"><b>128 GB storage</b><span>eMMC 5.1. Chosen because real suppliers have it in stock.</span></div>
+<div class="fact"><b>Custom board</b><span>6-layer design target, 147 × 77 mm. Layout in progress.</span></div>
+</div>
+</section>
+
+<section class="tile soft">
+<p class="eyebrow">02 · Power</p>
+<h2>A battery that tops itself up.</h2>
+<p class="sub">A thin-film solar band under the rear shell feeds the battery. By our own math it adds roughly 0.6 to 0.9 W in good light. It refills the battery between charges. It cannot run the phone by itself.</p>
+<div class="facts">
+<div class="fact"><b>Solar top-up band</b><span>Through an MPPT controller.</span></div>
+<div class="fact"><b>Magnetic charging</b><span>Qi2-style wireless charging, so there is no port to wear out. Whether there is also a wired port is still being decided.</span></div>
+<div class="fact"><b>Removable battery</b><span>A tool-free tray, 5,200 mAh target. No adhesive.</span></div>
+</div>
+</section>
+
+<section class="tile" id="os">
+<p class="eyebrow">03 · Software</p>
+<h2>Veynor OS.</h2>
+<p class="sub">Our own software, written from scratch. It runs in a web browser on a phone or tablet today. The phone build has not started.</p>
+<div class="facts">
+<div class="fact"><b>Veynor Pay</b><span>Payment requests between two Veynor accounts. No bank or card is connected and no money moves. Tap-to-pay is future work.</span></div>
+</div>
+</section>
+
+<section class="tile soft" id="specs">
+<p class="eyebrow">Tech specs</p>
+<h2>Everything in the shell.</h2>
+<dl class="spec">
+<div><dt>Chip</dt><dd><b>Rockchip RK3588</b><span>8-core CPU, onboard NPU. RK806-1 PMIC plus three 6 A converters for the big cores and NPU.</span></dd></div>
+<div><dt>Memory</dt><dd><b>8 GB LPDDR4X <span class="tag2">first board</span></b><span>Four 16 Gbit packages around the chip. 16 GB is a later production target.</span></dd></div>
+<div><dt>Storage</dt><dd><b>128 GB eMMC 5.1</b><span>Dropped from a 256 GB target after real distributor checks found no in-stock single-unit part in this footprint.</span></dd></div>
+<div><dt>Board</dt><dd><b>Custom 6-layer carrier <span class="tag2">target</span></b><span>147 × 77 mm, 1.0 mm thick, 2 oz copper power planes. Layout in progress.</span></dd></div>
+<div><dt>Connectivity</dt><dd><b>LTE with GPS</b><span>Quectel EG25-G is the candidate module. Wired port still being decided.</span></dd></div>
+<div><dt>Camera</dt><dd><b>Main camera with gimbal stabilizer <span class="tag2">target</span></b><span>MIPI-CSI, two-stage shutter. Camera module not chosen yet. Ultrawide and front cameras not specified yet.</span></dd></div>
+<div><dt>Display</dt><dd><b>Not chosen yet</b><span>eDP interface. A clean slab front is the goal.</span></dd></div>
+<div><dt>Power</dt><dd><b>Solar band top-up</b><span>About 0.6 to 0.9 W in good light. No thermal generator on the first board.</span></dd></div>
+<div><dt>Battery</dt><dd><b>Tool-free removable tray, 5,200 mAh target</b><span>Magnetic Qi2-style wireless charging.</span></dd></div>
+<div><dt>Controls</dt><dd><b>Knurled digital dial <span class="tag2">design study</span></b><span>A tactile scrub and volume control with an amber inlay. Not in the parts list yet.</span></dd></div>
+<div><dt>Enclosure</dt><dd><b>Ceramic composite or Mg alloy</b><span>Matte graphite with champagne trim, about 9.5 to 10 mm target.</span></dd></div>
+<div><dt>Software</dt><dd><b>Veynor OS</b><span>Runs in a browser today. The phone build has not started.</span></dd></div>
+<div><dt>Status</dt><dd><b>Early hardware, in active development</b><span>Parts research and the net-level schematic are in progress. No phone has been built yet. No fixed ship date.</span></dd></div>
+</dl>
+</section>
+
+<section class="tile">
+<p class="eyebrow">Where things stand</p>
+<h2>One stage at a time.</h2>
+<div class="stages">
+<div class="stage"><small>Stage 01</small><b>Block diagram and spec</b></div>
+<div class="stage"><small>Stage 02</small><b>Veynor OS in the browser</b></div>
+<div class="stage now"><small>Stage 03</small><b>Net-level schematic</b></div>
+<div class="stage"><small>Stage 04</small><b>Board layout and bring-up</b></div>
+<div class="stage"><small>Stage 05</small><b>Enclosure fit</b></div>
+</div>
+</section>
+
+<section class="tile soft">
+<p class="eyebrow">Why not just buy a flagship?</p>
+<h2>Sealed shut vs. built to open.</h2>
+<div class="cmp">
+<div class="no"><h3>Typical flagship</h3><ul><li>Battery glued in</li><li>Memory and storage soldered down</li><li>The charging port wears out</li><li>Waste heat is only a problem</li></ul></div>
+<div class="yes"><h3>Veynor Solis</h3><ul><li>Battery in a tool-free tray</li><li>Modular board (planned)</li><li>Magnetic wireless charging</li><li>A solar band that tops up the battery</li></ul></div>
+</div>
+<p class="fine" style="margin-top:18px">The modular board is a plan and is not proven until a second revision fits the first shell.</p>
+</section>
+
+<section class="honest"><div class="faq">
+<details><summary>Is this a real charge today?</summary><p>No. Joining the waitlist is only an email address and nothing is charged.</p></details>
+<details><summary>When does it ship?</summary><p>There is no fixed ship date. This is early hardware and we would rather say so than promise a date we cannot hit.</p></details>
+<details><summary>Can I pay with a Veynor Solis?</summary><p>Not yet. Veynor Pay only lets two Veynor accounts send each other payment requests. No bank or card is connected.</p></details>
+<details><summary>What about refunds?</summary><p>We will publish a clear refund policy before taking any payment. Nothing today involves money.</p></details>
+</div></section>
+
+<section class="tile" id="waitlist">
+<h2>Be first in line.</h2>
+<p class="sub">No payment today. We will email you build updates and the moment preorders open.</p>
+<form class="wl" onsubmit="return false"><input type="email" placeholder="you@email.com" aria-label="Email address"><button disabled title="Preview: not connected yet">Join waitlist</button></form>
+<p class="fine">Preview: this form is not connected yet.</p>
+</section>
+
+<script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}</script>
+<script type="module">
+const box=document.getElementById('stl'),st=document.getElementById('stlst');
+async function go(){
+  try{
+  const [THREE,{STLLoader},{OrbitControls}]=await Promise.all([import('three'),import('three/addons/loaders/STLLoader.js'),import('three/addons/controls/OrbitControls.js')]);
+  const scene=new THREE.Scene(),cam=new THREE.PerspectiveCamera(35,box.clientWidth/box.clientHeight,.1,1000);cam.position.set(0,0,150);
+  const r=new THREE.WebGLRenderer({antialias:true,alpha:true});r.setSize(box.clientWidth,box.clientHeight);r.setPixelRatio(Math.min(devicePixelRatio,2));box.appendChild(r.domElement);
+  scene.add(new THREE.HemisphereLight(0xffffff,0x222222,1.3));const k=new THREE.DirectionalLight(0xffffff,1.4);k.position.set(2,3,4);scene.add(k);
+  const ctl=new OrbitControls(cam,r.domElement);ctl.enableDamping=true;ctl.autoRotate=true;ctl.autoRotateSpeed=1.2;ctl.minDistance=40;ctl.maxDistance=400;
+  new STLLoader().load('../assets/veynor-solis.stl',g=>{g.center();g.computeVertexNormals();g.computeBoundingBox();const s=new THREE.Vector3();g.boundingBox.getSize(s);
+    const m=new THREE.Mesh(g,new THREE.MeshStandardMaterial({color:0xd6d0cc,metalness:.4,roughness:.4}));m.scale.setScalar(90/(Math.max(s.x,s.y,s.z)||1));scene.add(m);st.style.display='none'},undefined,()=>{st.textContent='Could not load 3D preview.'});
+  (function a(){requestAnimationFrame(a);ctl.update();r.render(scene,cam)})();
+  addEventListener('resize',()=>{cam.aspect=box.clientWidth/box.clientHeight;cam.updateProjectionMatrix();r.setSize(box.clientWidth,box.clientHeight)});
+  }catch(e){st.textContent='3D preview unavailable.';console.error(e)}
+}
+if('IntersectionObserver' in window){const o=new IntersectionObserver(e=>{if(e[0].isIntersecting){o.disconnect();go()}},{rootMargin:'400px 0px'});o.observe(box)}else go();
+</script>
+<footer><img src="logo-full.png" alt="Veynor"><div>© 2026 Mambru Inc. · Veynor products are in development. Preview build.</div></footer>
+</body></html>
