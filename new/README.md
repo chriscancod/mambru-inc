@@ -1,4 +1,4 @@
-# Veynor redesign (preview, branch only)
+# Veynor redesign (now the front page; this folder only redirects to /)
 
 Not live. Lives in /new so nothing on the current site changes. Do not merge to main until an adult has reviewed it.
 

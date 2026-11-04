@@ -5,9 +5,10 @@
 <meta name="description" content="Veynor Solis: our own phone, on a custom board, with a solar top-up band and software we wrote ourselves. Early hardware in active development.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="canonical" href="https://mambru.online/solis.html">
 <link rel="stylesheet" href="style.css">
 </head><body>
-<div class="bar">Preview only · not live · nothing here is for sale</div>
+<div class="bar">In development · nothing here is for sale yet</div>
 <nav><a class="logo" href="index.html"><img src="logo-mark.png" alt="Veynor"></a>
 <div class="l"><a href="charm.html">Charm</a><a href="solis.html">Solis</a><a href="solis.html#os">Veynor OS</a></div>
 <a class="cta" href="charm.html#waitlist">Join waitlist</a></nav>
@@ -120,7 +121,7 @@ async function go(){
   const r=new THREE.WebGLRenderer({antialias:true,alpha:true});r.setSize(box.clientWidth,box.clientHeight);r.setPixelRatio(Math.min(devicePixelRatio,2));box.appendChild(r.domElement);
   scene.add(new THREE.HemisphereLight(0xffffff,0x222222,1.3));const k=new THREE.DirectionalLight(0xffffff,1.4);k.position.set(2,3,4);scene.add(k);
   const ctl=new OrbitControls(cam,r.domElement);ctl.enableDamping=true;ctl.autoRotate=true;ctl.autoRotateSpeed=1.2;ctl.minDistance=40;ctl.maxDistance=400;
-  new STLLoader().load('../assets/veynor-solis.stl',g=>{g.center();g.computeVertexNormals();g.computeBoundingBox();const s=new THREE.Vector3();g.boundingBox.getSize(s);
+  new STLLoader().load('assets/veynor-solis.stl',g=>{g.center();g.computeVertexNormals();g.computeBoundingBox();const s=new THREE.Vector3();g.boundingBox.getSize(s);
     const m=new THREE.Mesh(g,new THREE.MeshStandardMaterial({color:0xd6d0cc,metalness:.4,roughness:.4}));m.scale.setScalar(90/(Math.max(s.x,s.y,s.z)||1));scene.add(m);st.style.display='none'},undefined,()=>{st.textContent='Could not load 3D preview.'});
   (function a(){requestAnimationFrame(a);ctl.update();r.render(scene,cam)})();
   addEventListener('resize',()=>{cam.aspect=box.clientWidth/box.clientHeight;cam.updateProjectionMatrix();r.setSize(box.clientWidth,box.clientHeight)});
@@ -128,6 +129,6 @@ async function go(){
 }
 if('IntersectionObserver' in window){const o=new IntersectionObserver(e=>{if(e[0].isIntersecting){o.disconnect();go()}},{rootMargin:'400px 0px'});o.observe(box)}else go();
 </script>
-<footer><img src="logo-full.png" alt="Veynor"><div>© 2026 Mambru Inc. · Veynor products are in development. Preview build.</div></footer>
-<script src="../shared/captcha.js"></script><script src="waitlist.js"></script>
+<footer><img src="logo-full.png" alt="Veynor"><div>© 2026 Mambru Inc. · Veynor products are in development.</div></footer>
+<script src="shared/captcha.js"></script><script src="waitlist.js"></script>
 </body></html>
