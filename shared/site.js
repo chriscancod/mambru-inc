@@ -124,6 +124,7 @@ async function submitWaitlist(e){
   const input=form.querySelector('input[type=email]');
   const status=form.parentElement.querySelector('.waitlist-status');
   const btn=form.querySelector('button');
+  if (!form.reportValidity() || btn.disabled) return false;
   const email=input.value.trim();
   if(!EMAIL_RE.test(email)){
     if(status){status.textContent='Enter a valid email';status.className='waitlist-status err';}
@@ -139,9 +140,10 @@ async function submitWaitlist(e){
       body:JSON.stringify({email,...extra}),
     });
     const d=await r.json();
-    if(!d.success) throw new Error(d.error||'Could not join the waitlist');
+    if(!r.ok || d.success !== true) throw new Error(d.error||'Could not join the waitlist');
     if(status){status.textContent="You're on the list ✦";status.className='waitlist-status ok';}
     input.value='';
+    if(window.VeynorThanks) window.VeynorThanks.afterWaitlist(form);
   }catch(err){
     if(status){status.textContent=err.message;status.className='waitlist-status err';}
   }

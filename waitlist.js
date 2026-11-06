@@ -8,6 +8,8 @@
     f.addEventListener('submit', async function (e) {
       e.preventDefault();
       var input = f.querySelector('input[type=email]'), btn = f.querySelector('button'), status = f.parentElement.querySelector('.wl-status');
+      if (!f.reportValidity()) return;
+      if (btn.disabled) return;
       var email = input.value.trim();
       function say(t, ok) { status.textContent = t; status.className = 'fine wl-status ' + (ok ? 'ok' : 'err'); }
       if (!EMAIL_RE.test(email)) return say('Please enter a valid email address.', false);
@@ -16,8 +18,9 @@
         var extra = window.VeynorCaptcha ? await window.VeynorCaptcha.fields(f) : {};
         var r = await fetch(BACKEND + '/api/drop-signup', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(Object.assign({ email: email }, extra)) });
         var d = await r.json();
-        if (!d.success) throw new Error(d.error === 'Invalid email' ? 'That email does not look right.' : 'Could not join just now. Please try again later.');
+        if (!r.ok || d.success !== true) throw new Error(d.error === 'Invalid email' ? 'That email does not look right.' : 'Could not join just now. Please try again later.');
         say("You're on the list. We will email you real progress only.", true); input.value = '';
+        if (window.VeynorThanks) window.VeynorThanks.afterWaitlist(f);
       } catch (err) { say(err.message || 'Could not join just now. Please try again later.', false); }
       btn.disabled = false;
     });

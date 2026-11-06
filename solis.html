@@ -107,7 +107,7 @@
 <section class="tile" id="waitlist">
 <h2>Be first in line.</h2>
 <p class="sub">No payment today. We will email you build updates and the moment preorders open.</p>
-<form class="wl" data-waitlist><input type="email" required placeholder="you@email.com" aria-label="Email address" autocomplete="email"><button type="submit">Join waitlist</button></form>
+<form class="wl" data-waitlist data-waitlist-brand="solis"><input type="email" required placeholder="you@email.com" aria-label="Email address" autocomplete="email"><button type="submit">Join waitlist</button></form>
 <p class="fine wl-status" role="status">Just your email. No payment, no spam. Under 13? Ask a parent first. We only use it to tell you about Veynor.</p>
 </section>
 
@@ -130,5 +130,5 @@ async function go(){
 if('IntersectionObserver' in window){const o=new IntersectionObserver(e=>{if(e[0].isIntersecting){o.disconnect();go()}},{rootMargin:'400px 0px'});o.observe(box)}else go();
 </script>
 <footer><img src="logo-full.png" alt="Veynor"><div>© 2026 Mambru Inc. · Veynor products are in development.</div></footer>
-<script src="shared/captcha.js"></script><script src="waitlist.js"></script>
+<script src="shared/captcha.js"></script><script src="shared/thanks.js"></script><script src="waitlist.js"></script>
 </body></html>
