@@ -97,3 +97,14 @@ footer img{height:40px;mix-blend-mode:multiply;margin-bottom:10px}
 @media(max-width:640px){.spec div{grid-template-columns:1fr;gap:4px}}
 
 .wl-status.ok{color:#1d7a3a}.wl-status.err{color:#b3261e}
+
+/* Veynor Store: app catalog, separate from hardware. */
+.app-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;max-width:1040px;margin:40px auto 0;text-align:left}
+.app-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:32px;display:flex;flex-direction:column;align-items:flex-start}
+.app-card h3{font:600 30px/1.15 var(--s);letter-spacing:-.02em;margin:8px 0 12px}
+.app-card>p:not(.eyebrow){color:var(--mute);font-size:18px;margin-bottom:24px}
+.app-card .pill{margin-top:auto}
+form.wl .wl-consent{flex:1 1 100%;display:flex;align-items:flex-start;gap:10px;text-align:left;font-size:13px;color:var(--mute);padding:12px 4px}
+form.wl .wl-consent input{flex:0 0 auto;width:18px;height:18px;margin-top:1px;accent-color:var(--blue)}
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+@media(max-width:640px){.app-grid{grid-template-columns:1fr}.app-card{padding:26px}.split{grid-template-columns:minmax(0,1fr)}}
